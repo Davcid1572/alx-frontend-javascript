@@ -29,3 +29,20 @@ const teacher2: Teacher = {
 // Logging them
 console.log(teacher1);
 console.log(teacher2);
+
+// New Directors interface that extends Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+// Example usage:
+const director1: Directors = {
+  firstName: "Jane",
+  lastName: "Smith",
+  fullTimeEmployee: true,
+  location: "Abuja",
+  numberOfReports: 5,
+  contract: true, // still allowed (inherited from Teacher)
+};
+
+console.log(director1);
