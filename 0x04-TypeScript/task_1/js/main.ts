@@ -30,19 +30,26 @@ const teacher2: Teacher = {
 console.log(teacher1);
 console.log(teacher2);
 
-// New Directors interface that extends Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Example usage:
+// 3️⃣ Example usage
+const teacher3: Teacher = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  location: "Lagos",
+  contract: false, // extra property allowed
+};
+
 const director1: Directors = {
   firstName: "Jane",
   lastName: "Smith",
   fullTimeEmployee: true,
   location: "Abuja",
   numberOfReports: 5,
-  contract: true, // still allowed (inherited from Teacher)
 };
 
+console.log(teacher3);
 console.log(director1);
