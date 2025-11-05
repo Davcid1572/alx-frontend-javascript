@@ -1,19 +1,19 @@
-// 1️⃣ Define the Teacher interface
+// Define the Teacher interface
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // allows additional properties like contract, subject, etc.
+  [key: string]: any; // allows additional properties
 }
 
-// 2️⃣ Define the Directors interface that extends Teacher
+// Define the Directors interface that extends Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// 3️⃣ Example usage
+// Example objects
 const teacher1: Teacher = {
   firstName: "John",
   lastName: "Doe",
