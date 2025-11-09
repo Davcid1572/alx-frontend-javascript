@@ -30,14 +30,25 @@ const director1: Director = {
   numberOfReports: 5,
 };
 
+// interface printTeacherFunction {
+//   (firstName: string, lastName: string): string;
+// }
+
+// const printTeacher: printTeacherFunction = (firstName, lastName): string => {
+//   return `${firstName[0]} ${lastName}`;
+// };
+
+// console.log(teacher1);
+// console.log(director1);
+// console.log(printTeacher("David", "Ifejiofor"));
+
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName, lastName): string => {
-  return `${firstName[0]} ${lastName}`;
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-console.log(teacher1);
-console.log(director1);
-console.log(printTeacher("David", "Ifejiofor"));
+// Example usage
+console.log(printTeacher("John", "Doe"));
