@@ -42,13 +42,18 @@ const director1: Director = {
 // console.log(director1);
 // console.log(printTeacher("David", "Ifejiofor"));
 
-interface printTeacherFunction {
+interface PrintTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
+// Declare the function normally (not anonymous)
 function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 }
 
+// Assign it to a variable typed as the interface (optional but valid)
+const teacherPrinter: PrintTeacherFunction = printTeacher;
+
 // Example usage
-console.log(printTeacher("John", "Doe"));
+console.log(printTeacher("John", "Doe")); // ✅ J. Doe
+console.log(teacherPrinter("Jane", "Smith"));
