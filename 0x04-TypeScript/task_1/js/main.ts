@@ -43,3 +43,4 @@ const printTeacher: printTeacherFunction = (
 
 console.log(teacher1);
 console.log(director1);
+console.log(printTeacher("David", "Ifejiofor"));
