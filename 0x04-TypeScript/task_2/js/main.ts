@@ -1,18 +1,15 @@
-// Define DirectorInterface
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
 
-// Define TeacherInterface
 interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
 
-//  Implement Director class
 class Director implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
@@ -27,7 +24,6 @@ class Director implements DirectorInterface {
   }
 }
 
-//  Implement Teacher class
 class Teacher implements TeacherInterface {
   workFromHome(): string {
     return "Cannot work from home";
@@ -42,41 +38,46 @@ class Teacher implements TeacherInterface {
   }
 }
 
-//  createEmployee function
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === "number" && salary < 500) {
     return new Teacher();
+  } else {
+    return new Director();
   }
-  return new Director();
 }
 
-// 6️⃣ Example usage
-const emp1 = createEmployee(200);
-const emp2 = createEmployee(1000);
-const emp3 = createEmployee("500");
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee("$500"));
 
-console.log("**** Employee 1 ****");
-console.log(emp1.workFromHome());
-console.log(emp1.getCoffeeBreak());
-if (emp1 instanceof Teacher) console.log(emp1.workTeacherTasks());
+// functions specific to employees
 
-console.log("**** Employee 2 ****");
-console.log(emp2.workFromHome());
-console.log(emp2.getCoffeeBreak());
-if (emp2 instanceof Director) console.log(emp2.workDirectorTasks());
+function isDirector(employee: Teacher | Director): boolean {
+  return employee instanceof Director;
+}
 
-console.log("**** Employee 3 ****");
-console.log(emp3.workFromHome());
-console.log(emp3.getCoffeeBreak());
-if (emp3 instanceof Director) console.log(emp3.workDirectorTasks());
+function executeWork(employee: Teacher | Director): string {
+  if (employee instanceof Director) {
+    return employee.workDirectorTasks();
+  } else if (employee instanceof Teacher) {
+    return employee.workTeacherTasks();
+  }
+}
 
-// 1️⃣ Create a string literal type
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+
+// String literal types
+
 type Subjects = "Math" | "History";
 
-// 2️⃣ Create the function teachClass
 function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
-    return "Teaching Math";
+    return `Teaching Math`;
+  } else if (todayClass === "History") {
+    return `Teaching History`;
   }
-  return "Teaching History";
 }
+
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
