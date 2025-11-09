@@ -30,12 +30,10 @@ const director1: Director = {
   numberOfReports: 5,
 };
 
-// Interface describing the function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation
-function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
-}
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName[0]}. ${lastName}`;
+};
