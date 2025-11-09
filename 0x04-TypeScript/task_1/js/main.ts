@@ -30,32 +30,12 @@ const director1: Director = {
   numberOfReports: 5,
 };
 
-// interface printTeacherFunction {
-//   (firstName: string, lastName: string): string;
-// }
-
-// const printTeacher: printTeacherFunction = (firstName, lastName): string => {
-//   return `${firstName[0]} ${lastName}`;
-// };
-
-// console.log(teacher1);
-// console.log(director1);
-// console.log(printTeacher("David", "Ifejiofor"));
-
-interface PrintTeacherFunction {
+// Interface describing the function
+interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function using object destructuring
-function printTeacher({
-  firstName,
-  lastName,
-}: {
-  firstName: string;
-  lastName: string;
-}): string {
+// Function implementation
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 }
-
-// Example usage
-console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
