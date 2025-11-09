@@ -30,12 +30,25 @@ const director1: Director = {
   numberOfReports: 5,
 };
 
+// Define the function type interface
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation (must be a function declaration, not arrow)
 function printTeacher(firstName: string, lastName: string): string {
-  const teacher = { firstName, lastName }; // <-- this gives us { firstName, lastName }
+  const teacher = { firstName, lastName };
   return `${firstName}. ${lastName}`;
+}
+
+// Define the StudentClass
+class StudentClass {
+  constructor(public firstName: string, public lastName: string) {}
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.lastName + this.firstName; // Corrected to return lastName + firstName
+  }
 }
