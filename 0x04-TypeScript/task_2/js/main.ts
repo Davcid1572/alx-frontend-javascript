@@ -53,7 +53,7 @@ console.log(emp3.workDirectorTasks()); // "Getting to director tasks"
 
 type Subjects = "Math" | "History";
 
-function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass:Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else {
