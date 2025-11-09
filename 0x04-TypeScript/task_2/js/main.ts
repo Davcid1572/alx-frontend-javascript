@@ -46,3 +46,22 @@ function createEmployee(salary: number | string): Director | Teacher {
 const emp1 = createEmployee(200); // Teacher
 const emp2 = createEmployee(1000); // Director
 const emp3 = createEmployee("600"); // Director
+
+console.log(emp1.workFromHome()); // "Cannot work from home"
+console.log(emp2.getCoffeeBreak()); // "Getting a coffee break"
+console.log(emp3.workDirectorTasks()); // "Getting to director tasks"
+
+type Subjects = "Math" | "History";
+
+// 2️⃣ Function implementation
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else {
+    return "Teaching History";
+  }
+}
+
+// 3️⃣ Example usage
+console.log(teachClass("Math")); // Teaching Math
+console.log(teachClass("History")); // Teaching History
