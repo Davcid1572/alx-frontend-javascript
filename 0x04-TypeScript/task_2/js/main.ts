@@ -1,3 +1,5 @@
+// 1 Interfaces
+
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -9,6 +11,8 @@ interface TeacherInterface {
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
+
+// 2️⃣ Classes implementing interfaces
 
 class Director implements DirectorInterface {
   workFromHome(): string {
@@ -38,6 +42,8 @@ class Teacher implements TeacherInterface {
   }
 }
 
+// 3️⃣ Factory function
+
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === "number" && salary < 500) {
     return new Teacher();
@@ -46,38 +52,13 @@ function createEmployee(salary: number | string): Director | Teacher {
   }
 }
 
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee("$500"));
+// 4️⃣ Example usage
 
-// functions specific to employees
+const employee1 = createEmployee(200);
+console.log(employee1.workFromHome()); // "Cannot work from home"
 
-function isDirector(employee: Teacher | Director): boolean {
-  return employee instanceof Director;
-}
+const employee2 = createEmployee(1000);
+console.log(employee2.workFromHome()); // "Working from home"
 
-function executeWork(employee: Teacher | Director): string {
-  if (employee instanceof Director) {
-    return employee.workDirectorTasks();
-  } else if (employee instanceof Teacher) {
-    return employee.workTeacherTasks();
-  }
-}
-
-console.log(executeWork(createEmployee(200)));
-console.log(executeWork(createEmployee(1000)));
-
-// String literal types
-
-type Subjects = "Math" | "History";
-
-function teachClass(todayClass: Subjects): string {
-  if (todayClass === "Math") {
-    return `Teaching Math`;
-  } else if (todayClass === "History") {
-    return `Teaching History`;
-  }
-}
-
-console.log(teachClass("Math"));
-console.log(teachClass("History"));
+const employee3 = createEmployee("600");
+console.log(employee3.workFromHome()); // "Working from home"
