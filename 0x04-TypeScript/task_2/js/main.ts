@@ -51,17 +51,19 @@ console.log(emp1.workFromHome()); // "Cannot work from home"
 console.log(emp2.getCoffeeBreak()); // "Getting a coffee break"
 console.log(emp3.workDirectorTasks()); // "Getting to director tasks"
 
-// String literal type
+// Function using the exact parameter name and type
 type Subjects = "Math" | "History";
 
-// Function using the exact parameter name and type
 function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
-    return "Teaching Math";
-  } else {
-    return "Teaching History";
+    return `Teaching Math`;
+  } else if (todayClass === "History") {
+    return `Teaching History`;
   }
 }
+
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
 
 // Example usage
 console.log(teachClass("Math")); // Teaching Math
